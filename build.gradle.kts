@@ -39,6 +39,7 @@ dependencyManagement {
 }
 
 dependencies {
+    // Compile dependencies
     compile("org.springframework.boot:spring-boot-starter-jersey")
     compile("org.springframework.boot:spring-boot-starter-jetty")
     compile("org.springframework.boot:spring-boot-starter-logging")
@@ -47,6 +48,7 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     compile("org.jetbrains.kotlin:kotlin-reflect")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin")
+    // Test dependencies
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
     }

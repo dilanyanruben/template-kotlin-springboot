@@ -17,7 +17,7 @@ class JerseyConfiguration : ResourceConfig() {
 
     //region Companion object
     companion object {
-        val LOGGER = LoggerFactory.getLogger(JerseyConfiguration::class.java)!!
+        private val LOGGER = LoggerFactory.getLogger(JerseyConfiguration::class.java)!!
     }
     //endregion
 

@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration
 class JerseyServletConfiguration {
     //region companion object
     companion object {
-        val LOGGER = LoggerFactory.getLogger(JerseyServletConfiguration::class.java)!!
+        private val LOGGER = LoggerFactory.getLogger(JerseyServletConfiguration::class.java)!!
     }
     //endregion
 

@@ -20,7 +20,7 @@ import javax.ws.rs.core.Response
 class HealthCheckResource {
     //region companion objects
     companion object {
-        val LOGGER = LoggerFactory.getLogger(HealthCheckResource::class.java)
+        private val LOGGER = LoggerFactory.getLogger(HealthCheckResource::class.java)!!
     }
     //endregion
 
