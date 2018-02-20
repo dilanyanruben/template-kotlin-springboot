@@ -31,24 +31,24 @@ class JpaEntityManagerFactoryConfiguration(@Autowired val dataSource: DataSource
         private val LOGGER = LoggerFactory.getLogger(JpaEntityManagerFactoryConfiguration::class.java)!!
 
         //region Constants
-        private const val JPA_PACKAGES_TO_SCAN = "com.sfl.kotlin.persistence"
+        private const val JPA_PACKAGES_TO_SCAN = "com.sfl.kotlin.domain"
         //endregion
     }
     //endregion
 
     //region Configuration factory methods
-    @Bean
+    @Bean("entityManagerFactory")
     fun createEntityManagerFactory(): EntityManagerFactory {
         LOGGER.debug("Initializing entity manager factory")
-        val entityManagerFactory = LocalContainerEntityManagerFactoryBean()
-        entityManagerFactory.dataSource = dataSource
-        entityManagerFactory.persistenceUnitName = persistenceUnitName
-        entityManagerFactory.jpaVendorAdapter = jpaVendorAdapter
-        entityManagerFactory.setJpaProperties(jpaVendorProperties)
-        entityManagerFactory.setPackagesToScan(JPA_PACKAGES_TO_SCAN)
-        entityManagerFactory.afterPropertiesSet()
-        LOGGER.debug("Successfully created entity manager factory - {}", entityManagerFactory)
-        return entityManagerFactory.`object`!!
+        val entityManagerFactoryBean = LocalContainerEntityManagerFactoryBean()
+        entityManagerFactoryBean.dataSource = dataSource
+        entityManagerFactoryBean.persistenceUnitName = persistenceUnitName
+        entityManagerFactoryBean.jpaVendorAdapter = jpaVendorAdapter
+        entityManagerFactoryBean.setJpaProperties(jpaVendorProperties)
+        entityManagerFactoryBean.setPackagesToScan(JPA_PACKAGES_TO_SCAN)
+        entityManagerFactoryBean.afterPropertiesSet()
+        LOGGER.debug("Successfully created entity manager factory - {}", entityManagerFactoryBean)
+        return entityManagerFactoryBean.`object`!!
     }
     //endregion
 
