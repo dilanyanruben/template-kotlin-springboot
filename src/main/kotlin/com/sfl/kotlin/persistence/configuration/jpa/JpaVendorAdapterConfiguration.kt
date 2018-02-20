@@ -56,7 +56,7 @@ class JpaVendorAdapterConfiguration(@Value("\${persistence.hibernate.outputsqlst
         return hibernateJpaVendorAdapter
     }
 
-    @Bean
+    @Bean("jpaVendorProperties")
     fun createJpaVendorProperties(): Properties {
         LOGGER.debug("Initializing JPA vendor properties")
         val properties = Properties()
