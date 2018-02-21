@@ -25,7 +25,7 @@ class JpaTransactionManagerConfiguration(@Autowired val entityManagerFactory: En
     //endregion
 
     //region Configuration factory methods
-    @Bean
+    @Bean("transactionManager")
     fun createTransactionManager(): PlatformTransactionManager {
         LOGGER.debug("Creating transaction manager")
         val transactionManager = JpaTransactionManager()
