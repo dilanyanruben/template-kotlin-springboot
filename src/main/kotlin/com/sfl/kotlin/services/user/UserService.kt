@@ -1,5 +1,6 @@
 package com.sfl.kotlin.services.user
 
+import com.sfl.kotlin.domain.user.dto.CreateUserDto
 import com.sfl.kotlin.domain.user.model.User
 
 
@@ -11,5 +12,20 @@ import com.sfl.kotlin.domain.user.model.User
  */
 interface UserService {
 
+    /**
+     * Retrieves user for the provided id
+     *
+     * @param id
+     * @return user
+     *
+     */
     fun getById(id: Long): User
+
+    /**
+     * Creates user for the provided DTO
+     *
+     * @param dto
+     * @return user
+     */
+    fun create(dto: CreateUserDto): User
 }

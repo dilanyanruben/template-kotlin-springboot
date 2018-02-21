@@ -15,6 +15,7 @@ buildscript {
 }
 
 apply {
+    plugin("java")
     plugin("org.springframework.boot")
     plugin("org.junit.platform.gradle.plugin")
 }
@@ -48,6 +49,7 @@ dependencies {
     compile("org.jetbrains.kotlin:kotlin-reflect")
     compile("com.fasterxml.jackson.module:jackson-module-kotlin")
     compile("org.hsqldb:hsqldb")
+    compile("org.apache.commons:commons-lang3")
     // Test dependencies
     testCompile("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "junit")
