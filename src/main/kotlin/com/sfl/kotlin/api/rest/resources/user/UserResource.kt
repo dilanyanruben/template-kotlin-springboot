@@ -49,7 +49,7 @@ class UserResource(@Autowired private val userResourceFacade: UserResourceFacade
 
     @POST
     fun createUser(user: UserModel): Response {
-        LOGGER.debug("Retrieving all users")
+        LOGGER.debug("Creating new user for the provided model - {}", user)
         return Response.ok(userResourceFacade.createUser(user)).build()
     }
     //endregion
