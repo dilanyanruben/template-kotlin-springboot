@@ -1,5 +1,7 @@
 package com.sfl.kotlin.services.user.impl
 
+import com.sfl.kotlin.domain.user.dto.CreateUserDto
+import com.sfl.kotlin.domain.user.dto.UserDto
 import com.sfl.kotlin.domain.user.model.User
 import com.sfl.kotlin.persistence.repositories.user.UserRepository
 import com.sfl.kotlin.services.common.AbstractUnitTest
@@ -23,7 +25,7 @@ import java.util.*
  * Date: 2/21/18
  * Time: 11:46 AM
  */
-class UserServiceImplTest : AbstractUnitTest() {
+class UserServiceImplUnitTest : AbstractUnitTest() {
 
     //region Test subject and mocks
     private lateinit var userService: UserService
@@ -40,6 +42,28 @@ class UserServiceImplTest : AbstractUnitTest() {
     //endregion
 
     //region Test methods
+
+    //region Test create
+    @Test
+    @DisplayName("Test creation of the user for the provided DTO")
+    fun testCreate() {
+        // Test data
+        val createUserDto = getCreateUserDto()
+        // Reset
+        resetAll()
+        // Expectations
+        `when`(userRepository.save(isA(User::class.java))).thenAnswer { it.getArgument(0) }
+        // Run test scenario
+        val result = userService.create(createUserDto).apply {
+            assertThat(this.firstName).isEqualTo(createUserDto.userDto.firstName)
+            assertThat(this.lastName).isEqualTo(createUserDto.userDto.lastName)
+        }
+        // Verify
+        verify(userRepository).save(result)
+    }
+    //endregion
+
+    //region Test get By id
     @Test
     @DisplayName("Test retrieval of the user for the provided id when it does not exist")
     fun testGetByIdWithNotExistingId() {
@@ -65,7 +89,7 @@ class UserServiceImplTest : AbstractUnitTest() {
     fun testGetById() {
         // Test data
         val id = Randomizer.generateRandomLong()
-        val user = createUser().apply { this.id = id }
+        val user = getUser().apply { this.id = id }
         // Reset
         resetAll()
         // Expectations
@@ -77,15 +101,19 @@ class UserServiceImplTest : AbstractUnitTest() {
     }
     //endregion
 
+    //endregion
+
     //region Private utility methods
     private fun resetAll() {
         reset(userRepository)
     }
 
-    private fun createUser() = User(Randomizer.generateRandomString(), Randomizer.generateRandomString())
+    private fun getUser() = User(Randomizer.generateRandomString(), Randomizer.generateRandomString())
 
-    fun assertUserNotFoundForIdException(exception: UserNotFoundForIdException, id: Long) {
+    private fun assertUserNotFoundForIdException(exception: UserNotFoundForIdException, id: Long) {
         assertThat(exception.id).isEqualTo(id)
     }
+
+    private fun getCreateUserDto() = CreateUserDto(UserDto(Randomizer.generateRandomString(), Randomizer.generateRandomString()))
     //endregion
 }

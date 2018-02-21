@@ -18,7 +18,7 @@ import javax.transaction.Transactional
  * Time: 6:43 PM
  */
 @Service
-class UserServiceImpl(@Autowired val userRepository: UserRepository) : UserService {
+class UserServiceImpl(@Autowired private val userRepository: UserRepository) : UserService {
 
     //region Companion object
     companion object {
