@@ -17,7 +17,7 @@ import javax.ws.rs.core.Response
  */
 @Path("user")
 @Component
-@Produces("text/json")
+@Produces("application/json")
 class UserResource(@Autowired private val userResourceFacade: UserResourceFacade) {
 
     //region Companion object
@@ -48,6 +48,7 @@ class UserResource(@Autowired private val userResourceFacade: UserResourceFacade
     }
 
     @POST
+    @Consumes("application/json")
     fun createUser(user: UserModel): Response {
         LOGGER.debug("Creating new user for the provided model - {}", user)
         return Response.ok(userResourceFacade.createUser(user)).build()
