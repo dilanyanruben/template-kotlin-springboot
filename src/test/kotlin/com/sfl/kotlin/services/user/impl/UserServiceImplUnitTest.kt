@@ -101,6 +101,23 @@ class UserServiceImplUnitTest : AbstractUnitTest() {
     }
     //endregion
 
+    //region Get all method
+    @Test
+    @DisplayName("Test retrieval of all users")
+    fun testGetAll() {
+        // Test data
+        val users = listOf(getUser(), getUser(), getUser())
+        // Reset
+        resetAll()
+        // Expectations
+        `when`(userRepository.findAll()).thenReturn(users)
+        // Run test scenario
+        userService.getAll().apply { assertThat(this).isEqualTo(users) }
+        // Verify
+        verify(userRepository).findAll()
+    }
+    //endregion
+
     //endregion
 
     //region Private utility methods

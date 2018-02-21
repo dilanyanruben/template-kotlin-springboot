@@ -48,5 +48,12 @@ class UserServiceImpl(@Autowired private val userRepository: UserRepository) : U
         LOGGER.debug("Successfully created user for the provided DTO - {}, user - {}", dto, user)
         return user
     }
+
+    override fun getAll(): List<User> {
+        LOGGER.debug("Retrieving all users")
+        val users = userRepository.findAll()
+        LOGGER.debug("Successfully retrieved users - {}", users)
+        return users
+    }
     //endregion
 }

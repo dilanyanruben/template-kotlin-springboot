@@ -1,6 +1,7 @@
-package com.sfl.kotlin.api.configuration.jersey
+package com.sfl.kotlin.api.rest.configuration.jersey
 
-import com.sfl.kotlin.api.resources.health.HealthCheckResource
+import com.sfl.kotlin.api.rest.resources.health.HealthCheckResource
+import com.sfl.kotlin.api.rest.resources.user.UserResource
 import org.glassfish.jersey.server.ResourceConfig
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Configuration
@@ -26,6 +27,7 @@ class JerseyConfiguration : ResourceConfig() {
         LOGGER.debug("Initializing Jersey configuration")
         // Register resources
         register(HealthCheckResource::class.java)
+        register(UserResource::class.java)
     }
     //endregion
 }

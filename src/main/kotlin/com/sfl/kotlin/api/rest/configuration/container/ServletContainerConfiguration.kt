@@ -1,4 +1,4 @@
-package com.sfl.kotlin.api.configuration.container
+package com.sfl.kotlin.api.rest.configuration.container
 
 import org.slf4j.LoggerFactory
 import org.springframework.boot.web.embedded.jetty.JettyServletWebServerFactory

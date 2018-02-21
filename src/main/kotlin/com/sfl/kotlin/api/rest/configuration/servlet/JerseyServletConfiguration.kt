@@ -1,6 +1,6 @@
-package com.sfl.kotlin.api.configuration.servlet
+package com.sfl.kotlin.api.rest.configuration.servlet
 
-import com.sfl.kotlin.api.configuration.jersey.JerseyConfiguration
+import com.sfl.kotlin.api.rest.configuration.jersey.JerseyConfiguration
 import org.glassfish.jersey.servlet.ServletContainer
 import org.slf4j.LoggerFactory
 import org.springframework.boot.web.servlet.ServletRegistrationBean

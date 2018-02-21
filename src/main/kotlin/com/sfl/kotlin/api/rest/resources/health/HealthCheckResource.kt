@@ -1,4 +1,4 @@
-package com.sfl.kotlin.api.resources.health
+package com.sfl.kotlin.api.rest.resources.health
 
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component

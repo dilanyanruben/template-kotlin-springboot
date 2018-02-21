@@ -26,6 +26,15 @@ interface UserService {
      *
      * @param dto
      * @return user
+     *
      */
     fun create(dto: CreateUserDto): User
+
+    /**
+     * Retrieves list of all users
+     *
+     * @return users
+     *
+     */
+    fun getAll(): List<User>
 }
