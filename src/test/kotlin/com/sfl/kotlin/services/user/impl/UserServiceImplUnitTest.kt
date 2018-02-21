@@ -43,7 +43,7 @@ class UserServiceImplUnitTest : AbstractUnitTest() {
 
     //region Test methods
 
-    //region Test create
+    //region Create method
     @Test
     @DisplayName("Test creation of the user for the provided DTO")
     fun testCreate() {
@@ -63,7 +63,7 @@ class UserServiceImplUnitTest : AbstractUnitTest() {
     }
     //endregion
 
-    //region Test get By id
+    //region Get by id method
     @Test
     @DisplayName("Test retrieval of the user for the provided id when it does not exist")
     fun testGetByIdWithNotExistingId() {
