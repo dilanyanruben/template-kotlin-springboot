@@ -30,7 +30,7 @@ class JpaTransactionManagerConfiguration(@Autowired val entityManagerFactory: En
         LOGGER.debug("Creating transaction manager")
         val transactionManager = JpaTransactionManager()
         transactionManager.entityManagerFactory = entityManagerFactory
-        LOGGER.debug("Successfully created transaction manager - {}", transactionManager)
+        LOGGER.debug("Successfully created platform transaction manager - {}", transactionManager)
         return transactionManager
     }
     //endregion
