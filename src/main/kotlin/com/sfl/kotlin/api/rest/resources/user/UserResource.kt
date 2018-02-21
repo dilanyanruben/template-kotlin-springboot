@@ -1,7 +1,7 @@
 package com.sfl.kotlin.api.rest.resources.user
 
 import com.sfl.kotlin.api.facade.user.UserResourceFacade
-import com.sfl.kotlin.api.facade.user.model.UserModel
+import com.sfl.kotlin.api.facade.user.model.CreateUserModel
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
@@ -49,7 +49,7 @@ class UserResource(@Autowired private val userResourceFacade: UserResourceFacade
 
     @POST
     @Consumes("application/json")
-    fun createUser(user: UserModel): Response {
+    fun createUser(user: CreateUserModel): Response {
         LOGGER.debug("Creating new user for the provided model - {}", user)
         return Response.ok(userResourceFacade.createUser(user)).build()
     }

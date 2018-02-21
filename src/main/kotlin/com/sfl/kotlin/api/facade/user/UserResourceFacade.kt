@@ -1,6 +1,7 @@
 package com.sfl.kotlin.api.facade.user
 
-import com.sfl.kotlin.api.facade.user.model.UserModel
+import com.sfl.kotlin.api.facade.user.model.CreateUserModel
+import com.sfl.kotlin.api.facade.user.model.ViewUserModel
 
 
 /**
@@ -19,7 +20,7 @@ interface UserResourceFacade {
      * @return user
      *
      */
-    fun getUser(id: Long): UserModel
+    fun getUser(id: Long): ViewUserModel
 
     /**
      * Creates user for the provided model
@@ -28,7 +29,7 @@ interface UserResourceFacade {
      * @return createdUser
      *
      */
-    fun createUser(user: UserModel): UserModel
+    fun createUser(user: CreateUserModel): ViewUserModel
 
 
     /**
@@ -37,5 +38,5 @@ interface UserResourceFacade {
      * @return users
      *
      */
-    fun getAll(): List<UserModel>
+    fun getAll(): List<ViewUserModel>
 }

@@ -9,5 +9,5 @@ import com.fasterxml.jackson.annotation.JsonProperty
  * Date: 2/21/18
  * Time: 4:36 PM
  */
-data class UserModel(@JsonProperty("firstName") val firstName: String,
-                     @JsonProperty("lastName") val lastName: String)
+data class CreateUserModel(@JsonProperty("firstName") val firstName: String,
+                           @JsonProperty("lastName") val lastName: String)
