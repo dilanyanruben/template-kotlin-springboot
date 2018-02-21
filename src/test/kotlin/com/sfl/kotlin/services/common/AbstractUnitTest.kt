@@ -19,6 +19,7 @@ abstract class AbstractUnitTest {
     //endregion
 }
 
+//region Objects
 object Randomizer {
 
     //region Constants
@@ -33,3 +34,4 @@ object Randomizer {
     fun generateRandomLong() = RandomUtils.nextLong()
     //endregion
 }
+//endregion
