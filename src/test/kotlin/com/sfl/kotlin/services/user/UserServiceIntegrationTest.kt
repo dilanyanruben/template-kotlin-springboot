@@ -38,7 +38,7 @@ class UserServiceIntegrationTest(@Autowired private val userService: UserService
         // Prepare data
         val user = createUser()
         // Load user for the id
-        userService.getById(user.id).apply { this == user }
+        userService.getById(user.id).apply { assertThat(this == user).isTrue() }
     }
 
     @Test
