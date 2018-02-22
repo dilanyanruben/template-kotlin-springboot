@@ -47,9 +47,10 @@ class UserServiceIntegrationTest(@Autowired private val userService: UserService
         // Prepare data
         val users = listOf(createUser(), createUser(), createUser())
         // Retrieve all users
-        userService.getAll()
-                .apply { assertThat(this.size).isEqualTo(users.size) }
-                .apply { assertThat(this.containsAll(users)).isTrue() }
+        userService.getAll().apply {
+            assertThat(this.size).isEqualTo(users.size)
+            assertThat(this.containsAll(users)).isTrue()
+        }
     }
     //endregion
 
