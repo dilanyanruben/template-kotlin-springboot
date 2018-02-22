@@ -1,0 +1,23 @@
+persistence:
+   pool:
+      maxsize: 10
+   database:
+      username: sa
+      password:
+      url: jdbc:hsqldb:mem:template;shutdown=true
+      driverclassname: org.hsqldb.jdbc.JDBCDriver
+   jpa:
+      persistenceunitname: template-kotlin-springboot-jpa-persistence-unit
+   hibernate:
+      outputsqlstatements: true
+      generateddl: true
+      databasedialect: org.hibernate.dialect.HSQLDialect
+      formatsql: true
+      hbmddlconversion: create
+      generatestatistics: true
+      jdbc:
+         fetchsize: 20
+         batchsize: 20
+
+
+
